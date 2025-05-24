@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- Codificación y configuración de vista responsiva -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <!-- Título que se muestra en la pestaña del navegador -->
+  <title>Detalles del Pavo | Pavos Deliciosos</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/estilo.css" />
+  <link rel="stylesheet" href="../assets/css/catalogo.css" />
+</head>
+<body>
+
+<!-- HEADER: contiene logo, barra de búsqueda, navegación y acceso de usuario -->
+<header class="custom-header text-white py-3">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center">
+      <div class="logo">
+        <a href="../index.html">
+        <img src="../assets/img/logo.png" alt="Pavos Deliciosos" height="50">
+        </a>
+      </div>
+
+      <div class="search-bar mx-3 flex-grow-1">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Buscar pavos...">
+          <button class="btn btn-warning btn-search" type="button">Buscar</button>
+        </div>
+      </div>
+
+      <nav class="main-nav mx-3">
+        <ul class="nav">
+          <li class="nav-item"><a href="../index.html" class="nav-link text-white">Inicio</a></li>
+          <li class="nav-item"><a href="catalogo.html" class="nav-link text-white">Catálogo</a></li>
+          <li class="nav-item"><a href="acerca.html" class="nav-link text-white">Sobre nosotros</a></li>
+        </ul>
+      </nav>
+
+      <div class="user-actions d-flex align-items-center">
+        <div class="dropdown mx-2">
+          <button class="btn btn-outline-light dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
+            Mi cuenta
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" href="login.html">Ingresar</a></li>
+            <li><a class="dropdown-item" href="registro.html">Registrarse</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item d-none" href="#" id="logout">Cerrar sesión</a></li>
+          </ul>
+        </div>
+        <button class="btn btn-warning position-relative" id="cart-btn">
+          Mi carrito
+          <span id="cart-badge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Dropdown Carrito -->
+<div class="dropdown-carrito position-absolute end-0 mt-1 me-3 bg-white shadow p-3 rounded" id="cart-dropdown" style="display: none; z-index: 1000; width: 350px;">
+  <h3 class="h5">Carro de compras</h3>
+  <div id="cart-items" class="mb-2"></div>
+  <div class="cart-totals border-top pt-2">
+    <p class="mb-1">Transporte: Gratis</p>
+    <p class="fw-bold">Total a pagar: <span id="cart-total">$0.00</span></p>
+  </div>
+  <div class="d-flex justify-content-between mt-3">
+    <a href="carrito.html" class="btn btn-primary btn-sm">Ver carrito</a>
+    <button class="btn btn-secondary btn-sm" id="close-cart">Cerrar carrito</button>
+  </div>
+</div>
+
+<!-- CONTENIDO PRINCIPAL del detalle de producto -->
+<main class="container my-5 product-detail">
+  <div class="product-main d-flex flex-column flex-md-row gap-4">
+    <!-- Imagen principal del producto -->
+    <div class="product-gallery">
+      <img src="../assets/img/pavo-natural.jpg" alt="Pavo natural premium" id="main-image" class="img-fluid rounded">
+    </div>
+    <!-- Información del producto -->
+    <div class="product-info">
+      <h1 id="product-title">Pavo natural premium</h1>
+      <p class="product-weight">Peso: <span id="product-weight">5.2</span> kg</p>
+      <p class="product-stock">Disponible: 20 artículos</p>
+      <p>Precio unitario:</p>
+      <p class="product-price h4 text-danger">$<span id="product-price">45.99</span></p>
+      <!-- Selector de cantidad -->
+      <div class="quantity-selector mb-3">
+        <label for="quantity" class="form-label">Cantidad:</label>
+        <input type="number" id="quantity" class="form-control w-25" min="1" max="20" value="1">
+      </div>
+      <button class="btn btn-success" id="add-to-cart">Añadir al carrito</button>
+    </div>
+  </div>
+
+  <hr class="my-5">
+  <!-- Descripción del producto -->
+  <div class="product-description">
+    <h2>Descripción</h2>
+    <p>Experimenta la frescura y sabor incomparables de nuestro Pavo Andino Tradicional, empacado al vacío en funda de plástico termo encogible y malla externa...</p>
+    <!-- Tabla nutricional -->
+    <h3 class="mt-4">Información nutricional</h3>
+    <table class="table table-bordered w-100">
+      <tbody>
+        <tr><td>Tamaño de porción</td><td>115 g</td></tr>
+        <tr><td>Contenido energético</td><td>754 KJ (180 kcal)</td></tr>
+        <tr><td>Proteínas</td><td>18 g</td></tr>
+        <tr><td>Grasas (lípidos)</td><td>12 g</td></tr>
+        <tr><td>Grasa saturada</td><td>4 g</td></tr>
+        <tr><td>Carbohidratos</td><td>0 g</td></tr>
+        <tr><td>Fibra dietética</td><td>0 g</td></tr>
+        <tr><td>Sodio</td><td>570 mg</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- Políticas del producto -->
+  <div class="product-policies mt-5">
+    <h2>Políticas</h2>
+    <div class="policy">
+      <h3>Política de seguridad</h3>
+      <p>Todos nuestros productos cumplen con los más altos estándares de calidad y seguridad alimentaria.</p>
+    </div>
+    <div class="policy">
+      <h3>Forma de pago</h3>
+      <p>Aceptamos transferencias bancarias y efectivo, en este útlimo caso acercarse a la dirección: R459+R4H, Victor Manuel Rendón, Guayaquil 090313.</p>
+    </div>
+    <div class="policy">
+      <h3>Política de entrega</h3>
+      <p>Pedidos entre 8h00 a 14h30 se entregan en 24 hrs, después de 14h30 en 48 hrs.</p>
+    </div>
+  </div>
+</main>
+
+<!-- Modal que aparece cuando se añade un producto al carrito -->
+<div id="added-modal" class="modal" style="display: none;">
+  <div class="modal-content">
+    <span class="close-modal">&times;</span>
+    <h3>Nuevo producto añadido al carrito de compras</h3>
+    <div id="modal-product-info"></div>
+    <div class="modal-buttons mt-3">
+      <button class="btn btn-secondary" id="continue-shopping">Seguir comprando</button>
+      <a href="carrito.html" class="btn btn-primary">Ver carrito</a>
+    </div>
+  </div>
+</div>
+
+<!-- PIE DE PÁGINA: información de derechos y miembros del grupo -->
+<footer class="custom-footer text-white py-4 mt-5">
+  <div class="container text-center">
+    <p>&copy; 2025 Proyecto desarrollo de aplicaciones web - Grupo B. Todos los derechos reservados.</p>
+    <p class="mb-0">Integrantes: Anastacio, Castillo, Goyes, Solis, Yagual</p>
+  </div>
+</footer>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/carrito.js"></script>
+<script src="../assets/js/catalogo.js"></script>
+<script src="../assets/js/detalle_pavo.js"></script>
+
+</body>
+</html>

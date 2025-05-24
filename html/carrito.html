@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carrito de Compras | Pavos Deliciosos</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap para estilos prediseñados y componentes -->
+  <link rel="stylesheet" href="../assets/css/estilo.css" />
+  <link rel="stylesheet" href="../assets/css/carrito.css" />
+</head>
+<body>
+
+<!-- Header -->
+<header class="custom-header text-white py-3">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center">
+      <!-- Logo -->
+      <div class="logo">
+        <a href="../index.html">
+        <img src="../assets/img/logo.png" alt="Pavos Deliciosos" height="50">
+        </a>
+      </div>
+
+      <!-- Búsqueda -->
+      <div class="search-bar mx-3 flex-grow-1">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Buscar pavos...">
+          <button class="btn btn-warning btn-search" type="button">Buscar</button>
+        </div>
+      </div>
+
+      <!-- Navegación -->
+      <nav class="main-nav mx-3">
+        <ul class="nav">
+          <li class="nav-item"><a href="../index.html" class="nav-link text-white">Inicio</a></li>
+          <li class="nav-item"><a href="catalogo.html" class="nav-link text-white">Catálogo</a></li>
+          <li class="nav-item"><a href="acerca.html" class="nav-link text-white">Sobre nosotros</a></li>
+          <li class="nav-item"><a href="admin_productos.html" class="nav-link text-white">Gestión de pavos</a></li>
+
+        </ul>
+      </nav>
+
+      <!-- Acciones del usuario como iniciar sesión y ver el carrito -->
+      <div class="user-actions d-flex align-items-center">
+      <!-- Menú desplegable para la cuenta del usuario -->  
+        <div class="dropdown mx-2">
+          <button class="btn btn-outline-light dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
+            Mi cuenta
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" href="login.html">Ingresar</a></li>
+            <li><a class="dropdown-item" href="registro.html">Registrarse</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item d-none" href="#" id="logout">Cerrar sesión</a></li>
+          </ul>
+        </div>
+        <button class="btn btn-warning position-relative" id="cart-btn">
+          Mi carrito
+          <span id="cart-badge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Modal desplegable del carrito -->
+<div class="dropdown-carrito position-absolute end-0 mt-1 me-3 bg-white shadow p-3 rounded" id="cart-dropdown" style="display: none; z-index: 1000; width: 350px;">
+  <h3 class="h5">Carro de compras</h3>
+  <div id="cart-items" class="mb-2">
+    <!-- Items del carrito se añadirán aquí dinámicamente -->
+  </div>
+  <div class="cart-totals border-top pt-2">
+    <p class="mb-1">Transporte: Gratis</p>
+    <p class="fw-bold">Total a pagar: <span id="cart-total">$0.00</span></p>
+  </div>
+  <div class="d-flex justify-content-between mt-3">
+    <a href="carrito.html" class="btn btn-primary btn-sm">Ver carrito</a>
+    <button class="btn btn-secondary btn-sm" id="close-cart">Cerrar carrito</button>
+  </div>
+</div>
+
+<!-- Sección principal donde se listan los productos en el carrito -->
+<main class="container my-5">
+  <h1 class="mb-4">Carro de compras</h1>
+  <div class="contenedor-carrito">
+    <div class="factura-carrito">
+
+      <div class="contenedor-factura">
+        <table class="tabla-factura" id="tablaFactura">
+          <thead>
+            <tr>
+              <th>Producto</th>
+              <th>Peso (kg)</th>
+              <th>Precio unitario</th>
+              <th>Cantidad</th>
+              <th>Total</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="items-factura">
+            <!-- Los items se cargarán dinámicamente -->
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="4">Subtotal:</td>
+              <td id="subtotal-factura">$0.00</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td colspan="4">Transporte:</td>
+              <td>Gratis</td>
+              <td></td>
+            </tr>
+            <tr class="total">
+              <td colspan="4">Total a pagar:</td>
+              <td id="total-factura">$0.00</td>
+              <td></td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+    <!-- Acciones disponibles: vaciar el carrito o ir a pagar -->
+    <div class="acciones-carrito">
+      <button class="btn btn-vaciar" id="vaciar-carrito">Vaciar carrito</button>
+      <a href="finalizarCompra.html" class="btn btn-pagar">Continuar al pago</a>
+    </div>
+  </div>
+</main>
+
+<!-- Pie de página con créditos -->
+<footer class="custom-footer text-white py-4 mt-5">
+  <div class="container text-center">
+    <p>&copy; 2025 Proyecto desarrollo de aplicaciones web - Grupo B. Todos los derechos reservados.</p>
+    <p class="mb-0">Integrantes: Anastacio, Castillo, Goyes, Solis, Yagual</p>
+  </div>
+</footer>
+
+<!-- Scripts que activan funcionalidades del sitio -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/carrito.js"></script>
+<script src="../assets/js/catalogo.js"></script>
+
+</body>
+</html>

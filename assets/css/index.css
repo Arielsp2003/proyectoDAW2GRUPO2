@@ -1,0 +1,10 @@
+body { font-family: Arial, sans-serif; margin:0; padding:0; }
+header { background:#8B0000; color:#fff; padding:1rem; }
+nav a { color:#fff; margin-right:1rem; text-decoration:none; }
+main { padding:1rem; }
+form { display:flex; flex-direction:column; max-width:300px; }
+form label { margin-top:0.5rem; }
+form input, form button { padding:0.5rem; margin-top:0.2rem; }
+button { background:#8B0000; color:#fff; border:none; cursor:pointer; }
+button:hover { background:#6B0000; }
+footer { text-align:center; padding:1rem; background:#f0f0f0; margin-top:2rem; }

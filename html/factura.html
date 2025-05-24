@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Detalle de Factura</title>
+  <!-- Vinculación al archivo CSS para los estilos de la factura -->
+  <link rel="stylesheet" href="../assets/css/factura.css">
+</head>
+<body>
+  <div class="contenedor-factura">
+    <h1>Factura de compra</h1>
+    <!-- Sección para mostrar los datos del cliente -->
+    <div class="info-cliente">
+    <!-- Datos insertados dinámicamente -->
+      <h2>Datos del cliente</h2>
+      <div id="datos-cliente"></div>
+    </div>
+    <!-- Sección oculta inicialmente que se muestra si el pago fue por transferencia -->
+    <!-- Datos insertados dinámicamente -->
+    <div id="datos-transferencia" class="info-cliente d-none">
+      <h2>Detalles de transferencia bancaria</h2>
+      <div id="transferencia-info"></div>
+    </div>
+    <!-- Tabla donde se mostrarán los productos adquiridos -->
+    <table id="tabla-productos">
+      <thead>
+        <tr>
+          <th>Producto</th>
+          <th>Cantidad</th>
+          <th>Precio unitario</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody id="productos-factura">
+        <!-- Productos se cargarán aquí -->
+      </tbody>
+    </table>
+    <!-- Sección para mostrar el total calculado -->
+    <div class="total">
+      Total a pagar: <span id="total-factura">$0.00</span>
+    </div>
+    <!-- Botón que activa la impresión del documento en formato físico o PDF -->
+    <a href="#" class="boton-imprimir" onclick="window.print()">Imprimir Factura</a>
+  </div>
+  <!-- Archivo JS que inserta dinámicamente los datos -->
+  <script src="../assets/js/factura.js"></script>
+</body>
+</html>
